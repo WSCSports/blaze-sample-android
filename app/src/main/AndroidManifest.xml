@@ -18,7 +18,7 @@
         This helps in handling orientation changes more efficiently by preventing activity restarts and allowing
         the activity to handle configuration changes itself. -->
         <activity
-            android:name=".MainActivity"
+            android:name=".menu.MenuActivity"
             android:exported="true"
             android:theme="@style/Theme.BlazeSDKAndroidSampleApp">
             <intent-filter>
@@ -27,6 +27,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity android:name=".composepager.ComposePagerActivity"/>
+        <activity android:name=".composerow.ComposeWithLazyRowActivity"/>
+        <activity android:name=".viewpager.ViewPagerActivity"/>
 
         <!-- IMPORTANT - the following app id is a TEST id. You should use your own app id! -->
         <meta-data
