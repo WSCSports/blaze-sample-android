@@ -5,7 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.blaze.blazesdk.ads.custom_native.models.BlazeStoriesAdsConfigType
+import com.blaze.blazesdk.ads.models.ui.BlazeStoriesAdsConfigType
 import com.blaze.blazesdk.data_source.BlazeDataSourceType
 import com.blaze.blazesdk.data_source.BlazeWidgetLabel
 import com.blaze.blazesdk.style.players.stories.BlazeStoryPlayerStyle
