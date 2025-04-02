@@ -10,6 +10,7 @@ import com.blaze.blazesdk.delegates.models.BlazeCTAActionType
 import com.blaze.blazesdk.delegates.models.BlazePlayerType
 import com.blaze.blazesdk.features.shared.models.ui_shared.BlazeLinkActionHandleType
 import com.blaze.blazesdk.shared.results.BlazeResult
+import com.blaze.blazesdk.style.shared.models.BlazePlayerCustomActionButtonParams
 
 
 /**
@@ -83,6 +84,14 @@ object Delegates {
             return BlazeLinkActionHandleType.DEEPLINK
         }
 
+        override fun onTriggerCustomActionButton(
+            playerType: BlazePlayerType,
+            sourceId: String?,
+            customParams: BlazePlayerCustomActionButtonParams
+        ) {
+            Log.d(TAG, "onTriggerCustomActionButton - playerType - $playerType, sourceId - $sourceId, customParams - $customParams")
+        }
+
     }
 
     // Widget Delegates sample implementation
@@ -135,6 +144,14 @@ object Delegates {
             Log.d(TAG, "sourceId - $sourceId, itemId - $itemId, itemTitle - $itemTitle")
         }
 
+        override fun onTriggerCustomActionButton(
+            playerType: BlazePlayerType,
+            sourceId: String?,
+            customParams: BlazePlayerCustomActionButtonParams
+        ) {
+            Log.d(TAG, "onTriggerCustomActionButton - playerType - $playerType, sourceId - $sourceId, customParams - $customParams")
+        }
+
     }
 
     // Container Delegates sample implementation
@@ -178,6 +195,14 @@ object Delegates {
         ): BlazeLinkActionHandleType {
             Log.d(TAG, "onTriggerPlayerBodyTextLink - playerType - $playerType, sourceId - $sourceId, actionParam - $actionParam")
             return BlazeLinkActionHandleType.DEEPLINK
+        }
+
+        override fun onTriggerCustomActionButton(
+            playerType: BlazePlayerType,
+            sourceId: String?,
+            customParams: BlazePlayerCustomActionButtonParams
+        ) {
+            Log.d(TAG, "onTriggerCustomActionButton - playerType - $playerType, sourceId - $sourceId, customParams - $customParams")
         }
 
     }

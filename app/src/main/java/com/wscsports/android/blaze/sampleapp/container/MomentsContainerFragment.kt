@@ -75,15 +75,12 @@ class MomentsContainerFragment: Fragment(R.layout.fragment_container_moments) {
             containerId = "blaze-moments-container-unique-id",
             momentsPlayerStyle = momentsPlayerStyle,
             playerInContainerDelegate = Delegates.playerInContainerDelegate,
-            shouldOrderMomentsByReadStatus = true
+            shouldOrderMomentsByReadStatus = true,
+            containerView = binding.primeMomentsTabContainer
         )
 
         // Starting to play
-        momentsPlayerContainer?.startPlaying(
-            childFragmentManager,
-            binding.primeMomentsTabContainer,
-        )
-
+        momentsPlayerContainer?.startPlaying()
     }
 
 }
