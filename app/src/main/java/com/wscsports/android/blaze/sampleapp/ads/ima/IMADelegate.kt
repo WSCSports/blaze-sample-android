@@ -10,12 +10,12 @@ import com.google.ads.interactivemedia.v3.api.ImaSdkSettings
 
 object IMADelegate : BlazeIMADelegate {
 
-    override fun additionalIMATagQueryParams(requestData: BlazeIMAAdRequestInformation): Map<String, String> {
+    override suspend fun additionalIMATagQueryParams(requestData: BlazeIMAAdRequestInformation): Map<String, String> {
         // Any additional query params
         return emptyMap()
     }
 
-    override fun customIMASettings(requestData: BlazeIMAAdRequestInformation): ImaSdkSettings? {
+    override suspend fun customIMASettings(requestData: BlazeIMAAdRequestInformation): ImaSdkSettings? {
         // Optional implementation. You can use this to customize ImaSdkSettings.
         return ImaSdkFactory.getInstance().createImaSdkSettings().apply {
 
@@ -30,7 +30,7 @@ object IMADelegate : BlazeIMADelegate {
         Log.d("onIMAAdEvent", "eventType - ${eventType.name}, adInfo - $adInfo")
     }
 
-    override fun overrideAdTagUrl(requestData: BlazeIMAAdRequestInformation): String? {
+    override suspend fun overrideAdTagUrl(requestData: BlazeIMAAdRequestInformation): String? {
         // Optional implementation. You can use this to override the ad tag URL.
         return null
     }

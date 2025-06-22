@@ -9,15 +9,15 @@ import com.blaze.gam.custom_native.BlazeGamCustomNativeAdRequestInformation
 
 object CustomNativeAdsDelegate : BlazeGAMCustomNativeAdsDelegate {
 
-    override fun customGAMTargetingProperties(requestData: BlazeGamCustomNativeAdRequestInformation): Map<String, String> {
+    override suspend fun customGAMTargetingProperties(requestData: BlazeGamCustomNativeAdRequestInformation): Map<String, String> {
         return emptyMap()
     }
 
-    override fun publisherProvidedId(requestData: BlazeGamCustomNativeAdRequestInformation): String? {
+    override suspend fun publisherProvidedId(requestData: BlazeGamCustomNativeAdRequestInformation): String? {
         return null
     }
 
-    override fun networkExtras(requestData: BlazeGamCustomNativeAdRequestInformation): Bundle? {
+    override suspend fun networkExtras(requestData: BlazeGamCustomNativeAdRequestInformation): Bundle? {
         return null
     }
 
