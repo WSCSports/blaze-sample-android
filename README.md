@@ -1,3 +1,5 @@
+This sample app repository is deprecated and no longer maintained. Please use the new and improved Blaze iOS sample app instead: [Sample App V2](https://github.com/WSCSports/blaze-sample-android-v2)
+
 # Android Sample App
 
 [Blaze Android Documentation](https://dev.wsc-sports.com/edit/sdk-integration-android "Blaze Android Documentation")
