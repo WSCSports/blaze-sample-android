@@ -15,6 +15,7 @@ import com.wscsports.android.blaze.sampleapp.core.Delegates
 import com.wscsports.android.blaze.sampleapp.databinding.FragmentMomentsBinding
 
 class MomentsFragment : Fragment(R.layout.fragment_moments) {
+    val MOMENT_ID = "all-access"
 
     private var binding: FragmentMomentsBinding? = null
 
@@ -55,13 +56,13 @@ class MomentsFragment : Fragment(R.layout.fragment_moments) {
 
             momentsRowWidget.updateDataSource(
                 dataSourceType = BlazeDataSourceType.Labels(
-                    BlazeWidgetLabel.singleLabel("moments")
+                    BlazeWidgetLabel.singleLabel(MOMENT_ID)
                 )
             )
 
             momentsGridWidget.updateDataSource(
                 dataSourceType = BlazeDataSourceType.Labels(
-                    BlazeWidgetLabel.singleLabel("moments")
+                    BlazeWidgetLabel.singleLabel(MOMENT_ID)
                 )
             )
 
@@ -73,7 +74,22 @@ class MomentsFragment : Fragment(R.layout.fragment_moments) {
 
     private fun initRowWidget() {
         // Using rectangles Preset
-        val momentsWidgetRowPreset = BlazeWidgetLayout.Presets.MomentsWidget.Row.verticalRectangles
+        val momentsWidgetRowPreset = BlazeWidgetLayout.Presets.MomentsWidget.Row.verticalRectangles.apply{
+            widgetItemStyle.statusIndicator.let{
+                it.unreadState.apply{
+                    textStyle.textColor  = android.graphics.Color.GREEN
+                    backgroundColor = android.graphics.Color.RED
+                    isVisible = true
+                }
+                it.readState.apply{
+                    textStyle.textColor = android.graphics.Color.CYAN;
+                    backgroundColor = android.graphics.Color.BLUE;
+                    isVisible = true
+                }
+            }
+        }
+
+
 
         // Using default player Preset
         val momentsPlayerPreset = BlazeMomentsPlayerStyle.base()
@@ -87,7 +103,7 @@ class MomentsFragment : Fragment(R.layout.fragment_moments) {
         binding?.momentsRowWidget?.initWidget(
             widgetLayout = momentsWidgetRowPreset,
             playerStyle = momentsPlayerPreset,
-            dataSource = BlazeDataSourceType.Labels(BlazeWidgetLabel.singleLabel("moments")),
+            dataSource = BlazeDataSourceType.Labels(BlazeWidgetLabel.singleLabel(MOMENT_ID)),
             widgetId = "moments-row",
             widgetDelegate = Delegates.widgetDelegate,
             shouldOrderWidgetByReadStatus = true
@@ -96,7 +112,20 @@ class MomentsFragment : Fragment(R.layout.fragment_moments) {
 
     private fun initGridWidget() {
         // Using 2 columns  Preset
-        val momentsWidgetGridPreset = BlazeWidgetLayout.Presets.MomentsWidget.Grid.twoColumnsVerticalRectangles
+        val momentsWidgetGridPreset = BlazeWidgetLayout.Presets.MomentsWidget.Grid.twoColumnsVerticalRectangles.apply{
+            widgetItemStyle.statusIndicator.let{
+                it.unreadState.apply{
+                    textStyle.textColor  = android.graphics.Color.GREEN
+                    backgroundColor = android.graphics.Color.RED
+                    isVisible = true
+                }
+                it.readState.apply{
+                    textStyle.textColor = android.graphics.Color.CYAN;
+                    backgroundColor = android.graphics.Color.BLUE;
+                    isVisible = true
+                }
+            }
+        }
 
         // Using default player Preset
         val momentsPlayerPreset = BlazeMomentsPlayerStyle.base()
@@ -117,7 +146,7 @@ class MomentsFragment : Fragment(R.layout.fragment_moments) {
         binding?.momentsGridWidget?.initWidget(
             widgetLayout = momentsWidgetGridPreset,
             playerStyle = momentsPlayerPreset,
-            dataSource = BlazeDataSourceType.Labels(BlazeWidgetLabel.singleLabel("moments")),
+            dataSource = BlazeDataSourceType.Labels(BlazeWidgetLabel.singleLabel(MOMENT_ID)),
             widgetId = "moments-grid",
             widgetDelegate = Delegates.widgetDelegate,
             shouldOrderWidgetByReadStatus = true
